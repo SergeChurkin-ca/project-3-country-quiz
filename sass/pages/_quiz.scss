@@ -1,0 +1,107 @@
+ html {
+     scroll-behavior: smooth;
+ }
+ 
+ .content-wrapper {
+     width: 70%;
+     text-align: left;
+     margin: 3em auto;
+ }
+ 
+ h2 {
+     background-color: #640D36;
+     color: white;
+     width: 100%;
+     padding: 1em;
+ }
+ 
+ .question-wrapper {
+     display: inline-flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     width: 100%;
+     margin-bottom: 2em;
+     background-color: rgb(243, 243, 234);
+ }
+ 
+ ul {
+     padding: 0.5em;
+     width: calc((100% / 2));
+     flex: 1 0 300px;
+ }
+ 
+ li {
+     list-style: none;
+     background-color: #2ea4d6;
+     margin: 0 1em;
+     margin: 1em;
+     padding: 1em;
+     line-height: 2em;
+     border: solid 0.2em #2ea4d6;
+ }
+ 
+ label {
+     padding: 0 1em;
+ }
+ 
+ input[type='checkbox'] {
+     top: 0;
+     left: 0;
+     height: 25px;
+     width: 25px;
+ }
+ 
+ .img-container {
+     margin: 0.5em auto;
+     overflow: hidden;
+     width: 50%;
+     flex: 1 1 300px;
+ }
+ 
+ img {
+     width: calc((100% / 3) - 1%);
+     min-width: 200px;
+     //  height: auto;
+     padding: 1em 1em;
+ }
+ 
+ button {
+     background-color: lightgray;
+     width: calc((100% / 2) - 1em);
+     padding: 1em 1em;
+     margin: 1em 1em;
+ }
+ 
+ button {
+     background-color: #640D36;
+     color: white;
+ }
+ 
+ .button-next button {
+     margin-left: 0.6em;
+ }
+ 
+ .form-button {
+     background-color: rgb(219, 226, 233);
+     color: rgb(37, 37, 37);
+     border: solid 0.2em rgb(219, 226, 233);
+ }
+ 
+ // ***************************************
+ //dynamically added content on answer page
+ // ***************************************
+ .answer-wrapper {
+     width: 80%;
+     //  align-items: center;
+     text-align: center;
+ }
+ 
+ .answer-img-container {
+     //  display: inline-flex;
+     grid-template-columns: 1fr 1f 1fr;
+     flex-wrap: wrap;
+ }
+ 
+ .answer-wrapper button {
+     margin-top: 0;
+ }

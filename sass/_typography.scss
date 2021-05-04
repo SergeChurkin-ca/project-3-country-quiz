@@ -1,0 +1,25 @@
+body {
+    font-family: 'Alfa Slab One', cursive;
+}
+
+h1 {
+    // font-size: 26px;
+    font-size: calc(20px + (86 - 10) * ((100vw - 300px) / (1600 - 300)));
+    color: rgb(194, 82, 82);
+    text-transform: capitalize;
+}
+
+h2,
+label {
+    font-size: 25px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+button {
+    // font-size: 25px;
+    font-size: calc(10px + (25 - 10) * ((100vw - 300px) / (1600 - 300)));
+}
+
+label {
+    font-size: 20px;
+}

@@ -1,0 +1,46 @@
+.wrapper {
+    margin: 0 auto;
+    width: 99%;
+}
+
+.welcome-container {
+    text-align: center;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.text-container {
+    justify-content: center;
+    margin-top: 1%;
+    width: 90%;
+    padding: 2em;
+    display: inline-block;
+    color: white;
+    text-shadow: rgb(18, 18, 27) 2px 3px;
+    position: relative;
+    z-index: 1;
+    text-align: right;
+}
+
+button {
+    color: black;
+    height: auto;
+    border: 0;
+    padding: 2em 2em;
+    border-radius: 0.2em;
+    border: solid 0.2em #640D36;
+}
+
+.img-stamps {
+    height: 65em;
+    width: auto;
+    position: absolute;
+    bottom: -20em;
+    left: -20em;
+    transform: rotate(30deg);
+    z-index: 0;
+}
