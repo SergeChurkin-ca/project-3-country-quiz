@@ -1,5 +1,6 @@
 const myQuestions = [{
         question: "What is your favourite season?",
+        category: "season",
         answers: {
             a: "spring",
             b: "summer",
@@ -15,6 +16,7 @@ const myQuestions = [{
     },
     {
         question: "What is your favourite kidn of weather?",
+        category: "weather",
         answers: {
             a: "sunny",
             b: "mild",
@@ -35,6 +37,7 @@ const myQuestions = [{
     },
     {
         question: "Please chose one of these cuisines",
+        category: "cuisine",
         answers: {
             a: "Thai",
             b: "Spanish",
@@ -60,6 +63,7 @@ const myQuestions = [{
     },
     {
         question: "How spicy do you like?",
+        category: "spices",
         answers: {
             a: "I don't eat spicy",
             b: "little",
@@ -78,6 +82,7 @@ const myQuestions = [{
     },
     {
         question: "What kind of landscape do you prefer",
+        category: "landscape",
         answers: {
             a: "desert",
             b: "seaside",
@@ -122,19 +127,40 @@ function buildquiz() {
     myQuestions.forEach((currentquestion, questionNumber) => {
         const answers = [];
         for (letter in currentquestion.answers) {
+            console.log(currentquestion.category)
             answers.push(
-                `<label>
-                <input type="radio" name="question${questionNumber}" value="${letter}">
-                ${letter} :
-                ${currentquestion.answers[letter]}
-                <br>
-                </label>`
+
+                `
+                <div class="wrapper question-wrapper">
+                    <ul>
+                        <label>
+                            <input type="radio" name="question${questionNumber}" value="${letter}">
+                            ${letter} :
+                            ${currentquestion.answers[letter]}
+                            <br>
+                        </label>
+                    </ul>
+                    
+                </div>
+                `
             )
         }
         output.push(
-            `<div class="question"> ${currentquestion.question} </div>
-            <div class="answers"> ${answers.join('')} </div>
-            <hr>
+
+            `
+            <div class="wrapper">
+                <div class="question"><h2> ${currentquestion.question}</h2> </div>
+                <div class="wrapper question-wrapper">
+                    <div class="answers">
+                        <ul>
+                            <li> ${answers.join('')} </li>
+                        </ul>
+                    </div>
+                    <div class="img-container">
+                    </div>
+                    <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
+                </div>
+            </div>
             `
         )
     })
