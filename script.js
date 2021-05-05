@@ -109,8 +109,6 @@ const myQuestions = [{
 
 
 
-
-
 function filtering(countries) {
 
     let filteredcountry = countries.filter((x) => x.weather.includes('mild') ? x.name : '')
@@ -123,6 +121,7 @@ const resultsContainer = document.getElementById('results')
 const submitBtn = document.getElementById('submit');
 
 function buildquiz() {
+
     const output = [];
     myQuestions.forEach((currentquestion, questionNumber) => {
         const answers = [];
@@ -140,18 +139,26 @@ function buildquiz() {
                             <br>
                         </label>
                     </ul>
-                    
+                   
                 </div>
                 `
             )
         }
-        output.push(
 
-            `
+        for (let i = 1; i < myQuestions.length; i++) {
+            let idNumber = []
+            let nextIdNmber = i + 1
+            idNumber.push(i)
+
+            output.push(
+
+                `
             <div class="wrapper">
-                <div class="question"><h2> ${currentquestion.question}</h2> </div>
+                <div class="question" id="question${idNumber}">
+                    <h2>${currentquestion.question}</h2> 
+                </div>
                 <div class="wrapper question-wrapper">
-                    <div class="answers">
+                    <div class="answers" id="answers">
                         <ul>
                             <li> ${answers.join('')} </li>
                         </ul>
@@ -160,12 +167,19 @@ function buildquiz() {
                     </div>
                     <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
                 </div>
+                <a href="#question${nextIdNmber}" class="button-next"><button type="submit">Next</button></a>
+                
             </div>
+      
             `
-        )
+            )
+        }
+
+
     })
     quizContainer.innerHTML = output.join('')
 }
+
 
 function showResults() {
 
@@ -178,58 +192,31 @@ function showResults() {
         const userAnswer = (answerContainer.querySelector(selector)).value;
         result.push(userAnswer)
 
-        // return resultsContainer.innerHTML = (myQuestions.map((x) => x.pairs[userAnswer]))
-
-        // result.push((myQuestions.map((x) => x.pairs[userAnswer])))
-        // result.push(myQuestions.map((x) => x.pairs[result]))
-
-        // return resultsContainer.innerHTML = myQuestions.map((x) => x.answers)
-
-        // return resultsContainer.innerHTML = myQuestions.map((x) => x.pairs[result])
 
     });
-    // console.log("answers", result)
-    // console.log(myQuestions.map((x) => x.pairs))
-    // console.log(result)
 
 
-    // for (let i = 0; i <= result.length; i++) {
-    //     for (let value of Object.values(myQuestions.map((x) => x.pairs[result[i]]))) {
-    //         console.log(value)
-    //     }
-    // }
 
     console.log(result)
     let findingPair = []
     for (let i = 0; i < result.length; i++) {
 
         findingPair.push(myQuestions[i].pairs[result[i]])
-            // console.log("finding paris", myQuestions.map((x) => x.pairs[result[i]]))
-            // console.log(findingPair)
-            // return resultsContainer.innerHTML = `<p>Hello<p>`
 
     }
-
-    // return findingPair
-
-
-    // resultsContainer.innerHTML = `${findingPair}`
 
     console.log(findingPair.sort())
 
     const map = findingPair.reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map());
-    // console.log('keys', [...map.keys()])
-    // console.log('values', [...map.values()])
     console.log('entries', [...map.entries()])
 
-    // console.log('the winning country is', [...map.entries()].filter((x) => x[1] === Math.max(...map.values())))
     let winningCountry = [...map.entries()].filter((x) => x[1] === Math.max(...map.values()))[0]
 
     console.log('winning country is', winningCountry[0])
 
-    // console.log('final resilt', sortedArray)
     return resultsContainer.innerHTML = `winning ocuntry is ${winningCountry[0]}`
 }
+
 
 
 buildquiz();
@@ -237,3 +224,8 @@ buildquiz();
 
 
 submitBtn.addEventListener('click', showResults)
+
+
+for (let i = 0; i < myQuestions.length; i++) {
+    console.log('getting one more list', myQuestions[i].category)
+}
