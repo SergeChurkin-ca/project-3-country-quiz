@@ -1,11 +1,15 @@
-// @media(max-width: 380px) {
-//     .wrapper {
-//         width: 100%;
-//         margin: 0 auto;
-//         padding: 0;
-//     }
-//     .form-button {
-//         width: 100%;
-//         margin: 0.4em auto;
-//     }
-// }
+@media(max-width: 480px) {
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .img-container,
+    img {
+        width: 80vw;
+    }
+    .form-button {
+        width: 100%;
+        margin: 0.4em auto;
+    }
+}
