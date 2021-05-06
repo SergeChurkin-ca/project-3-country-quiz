@@ -1,4 +1,5 @@
 const myQuestions = [{
+        id: 1,
         question: "What is your favourite season?",
         category: "season",
         answers: {
@@ -15,6 +16,7 @@ const myQuestions = [{
         }
     },
     {
+        id: 2,
         question: "What is your favourite kidn of weather?",
         category: "weather",
         answers: {
@@ -36,6 +38,7 @@ const myQuestions = [{
 
     },
     {
+        id: 3,
         question: "Please chose one of these cuisines",
         category: "cuisine",
         answers: {
@@ -62,6 +65,7 @@ const myQuestions = [{
 
     },
     {
+        id: 4,
         question: "How spicy do you like?",
         category: "spices",
         answers: {
@@ -81,6 +85,7 @@ const myQuestions = [{
         }
     },
     {
+        id: 5,
         question: "What kind of landscape do you prefer",
         category: "landscape",
         answers: {
@@ -145,16 +150,10 @@ function buildquiz() {
             )
         }
 
-        for (let i = 1; i < myQuestions.length; i++) {
-            let idNumber = []
-            let nextIdNmber = i + 1
-            idNumber.push(i)
-
-            output.push(
-
-                `
+        output.push(
+            `
             <div class="wrapper">
-                <div class="question" id="question${idNumber}">
+                <div class="question" id="question${currentquestion.id}">
                     <h2>${currentquestion.question}</h2> 
                 </div>
                 <div class="wrapper question-wrapper">
@@ -167,14 +166,11 @@ function buildquiz() {
                     </div>
                     <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
                 </div>
-                <a href="#question${nextIdNmber}" class="button-next"><button type="submit">Next</button></a>
+                <a href="#question${currentquestion.id+1}" class="button-next"><button type="submit">Next</button></a>
                 
             </div>
-      
             `
-            )
-        }
-
+        )
 
     })
     quizContainer.innerHTML = output.join('')
