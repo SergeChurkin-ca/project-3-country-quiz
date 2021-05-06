@@ -4,7 +4,8 @@ body {
 
 h1 {
     // font-size: 26px;
-    font-size: calc(20px + (86 - 10) * ((100vw - 300px) / (1600 - 300)));
+    // font-size: calc(20px + (86 - 10) * ((100vw - 300px) / (1600 - 300)));
+    font-size: 5vw;
     color: rgb(194, 82, 82);
     text-transform: capitalize;
 }

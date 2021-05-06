@@ -269,7 +269,7 @@ body {
 }
 
 h1 {
-  font-size: calc(20px + (86 - 10) * ((100vw - 300px) / (1600 - 300)));
+  font-size: 5vw;
   color: #c25252;
   text-transform: capitalize;
 }
@@ -339,10 +339,13 @@ html {
   scroll-behavior: smooth;
 }
 
-.content-wrapper {
-  width: 70%;
-  text-align: left;
-  margin: 3em auto;
+.wrapper {
+  width: 85vw;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
 }
 
 h2 {
@@ -353,7 +356,7 @@ h2 {
 }
 
 .question-wrapper {
-  display: inline-flex;
+  display: flex;
   gap: 5%;
   flex-wrap: wrap;
   justify-content: center;
@@ -364,11 +367,7 @@ h2 {
 
 ul {
   padding: 0.5em;
-  width: calc((100% / 2));
-  flex: 1 0 300px;
-}
-
-li {
+  flex: 1 0 400px;
   list-style: none;
 }
 
@@ -376,16 +375,17 @@ label {
   list-style: none;
   background-color: #2ea4d6;
   padding: 1em;
-  line-height: 2em;
+  line-height: 1rem;
   border: solid 0.2em #2ea4d6;
-  width: 35rem;
+  display: flex;
 }
 
 input[type='radio'] {
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
+  margin-right: 1rem;
 }
 
 img {
@@ -428,8 +428,13 @@ button {
   margin-top: 0;
 }
 
+.answer-img-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .answer-img-container img {
-  flex: 1 0 200px;
+  width: calc((100% / 3) - 0.5rem);
 }
 
 button:hover,
@@ -457,18 +462,6 @@ button:active {
   transform: scale(0.9);
   font-weight: bold;
   transition: all 0.5s;
-}
-
-@media (max-width: 380px) {
-  .wrapper {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-  }
-  .form-button {
-    width: 100%;
-    margin: 0.4em auto;
-  }
 }
 
 footer {

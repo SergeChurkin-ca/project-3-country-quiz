@@ -219,8 +219,16 @@ function showResults() {
 
     return document.body.innerHTML = `
     <div>
-        <div class="answer-wrapper">
-        <h3>winning ocuntry is ${winningCountry[0]}</h3>
+        <div class="wrapper answer-wrapper">
+        <h2>You Got: ${winningCountry[0]}</h2>
+
+
+        <div class="answer-img-container wrapper">
+        <img src="https://source.unsplash.com/450x750/?${winningCountry[0]},landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
+        <img src="https://source.unsplash.com/450x750/?${winningCountry[0]},people" alt="People of ${winningCountry[0]}">
+        <img src="https://source.unsplash.com/450x750/?${winningCountry[0]},nature" alt="Nature of ${winningCountry[0]}">
+        </div>
+
         <a href="index.html" id="reset"><button type="submit">Start over</button></a>
         </div>
     </div>
