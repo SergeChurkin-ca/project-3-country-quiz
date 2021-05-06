@@ -117,6 +117,12 @@ const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results')
 const submitBtn = document.getElementById('submit');
 
+const preloadedImg = new Image();
+
+preloadedImg.src = "./assets/icons8-spinner.gif"
+
+
+
 function buildquiz() {
 
     const output = [];
@@ -132,9 +138,8 @@ function buildquiz() {
                     <li>
                     <label> 
                         <input type="radio" name="question${questionNumber}" value="${letter}">
-                          
                             ${letter} :
-                                ${currentquestion.answers[letter]}
+                            ${currentquestion.answers[letter]}
                     </label>
                     </li>
                     </ul>
@@ -157,7 +162,7 @@ function buildquiz() {
                             <ul>
                                 <li> ${answers.join('')} </li>
                             </ul>
-                            <a href="#question${currentquestion.id+1}" class="button-next" id="button-next-${currentquestion.id}"><button type="submit">Next</button></a>
+                            <a href="#question${currentquestion.id+1}"class="button-next" id="button-next-${currentquestion.id}"><button type="submit">Next</button></a>
                     </div>
                         <div class="img-container">
                             <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
@@ -224,9 +229,13 @@ function showResults() {
 
 
         <div class="answer-img-container wrapper">
-        <img src="https://source.unsplash.com/450x750/?${winningCountry[0]},landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
-        <img src="https://source.unsplash.com/450x750/?${winningCountry[0]},people" alt="People of ${winningCountry[0]}">
-        <img src="https://source.unsplash.com/450x750/?${winningCountry[0]},nature" alt="Nature of ${winningCountry[0]}">
+        
+        <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
+
+        <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},people" alt="People of ${winningCountry[0]}">
+
+        <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},nature" alt="Nature of ${winningCountry[0]}">
+
         </div>
 
         <a href="index.html" id="reset"><button type="submit">Start over</button></a>

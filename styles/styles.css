@@ -388,9 +388,17 @@ input[type='radio'] {
   margin-right: 1rem;
 }
 
+.img-container,
+.country-img {
+  background: url("../../assets/icons8-spinner.gif") no-repeat center;
+  background-size: 55px;
+  border: solid 3px red;
+  width: 30vw;
+}
+
 img {
+  width: 100%;
   height: auto;
-  padding: 2em 2em;
 }
 
 button {
