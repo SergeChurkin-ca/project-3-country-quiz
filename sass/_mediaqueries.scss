@@ -1,18 +1,24 @@
-    @media(max-width: 480px) {
-        .wrapper {
-            width: 100%;
-            margin: 0 auto;
-            padding: 0;
-        }
-        .img-container,
-        img {
-            width: 80vw;
-        }
-        label {
-            width: 80vw;
-        }
-        .form-button {
-            width: 100%;
-            margin: 0.4em auto;
-        }
+@media(max-width: 590px) {
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
     }
+    .img-container,
+    img {
+        width: 80vw;
+    }
+    label {
+        width: 80vw;
+    }
+    .form-button {
+        width: 100%;
+        margin: 0.4em auto;
+    }
+    .answer-img-container img {
+        width: 60vw;
+    }
+    .answer-img-container img:nth-child(n+2) {
+        display: none;
+    }
+}

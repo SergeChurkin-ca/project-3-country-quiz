@@ -26,7 +26,6 @@ h2 {
     width: 100%;
     margin-bottom: 1em;
     background-color: rgb(243, 243, 234);
-    border: solid 3px red;
 }
 
 ul {
@@ -66,11 +65,14 @@ input[type='radio'] {
 .country-img {
     background: url('../../assets/spinner.875550b4.gif') no-repeat center;
     background-size: 10vw;
+    background-position: 50% 20%;
     // padding: 1rem;
     // margin: 0 auto;
+    margin-top: 2rem;
     width: 30vw;
-    height: 50vh;
-    min-width: 200px;
+    // height: 30vh;
+    min-width: 250px;
+    // border: solid 2px red;
 }
 
 img {
@@ -111,6 +113,8 @@ button {
     // align-items: center;
     text-align: center;
     // margin: 1em auto 1em;
+    height: 100vh;
+    position: relative;
 }
 
 .answers {
@@ -122,7 +126,7 @@ button {
     // margin-top: 30%;
     // bottom: 0;
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
     left: 25%;
 }
 
@@ -143,5 +147,5 @@ button {
     width: calc((100% / 3) - 3rem);
     height: auto;
     margin: 1%;
-    min-width: 150px;
+    min-width: 200px;
 }

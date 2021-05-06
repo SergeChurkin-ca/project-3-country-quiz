@@ -363,7 +363,6 @@ h2 {
   width: 100%;
   margin-bottom: 1em;
   background-color: #f3f3ea;
-  border: solid 3px red;
 }
 
 ul {
@@ -396,9 +395,10 @@ input[type='radio'] {
 .country-img {
   background: url("../../assets/spinner.875550b4.gif") no-repeat center;
   background-size: 10vw;
+  background-position: 50% 20%;
+  margin-top: 2rem;
   width: 30vw;
-  height: 50vh;
-  min-width: 200px;
+  min-width: 250px;
 }
 
 img {
@@ -432,6 +432,8 @@ button {
 .answer-wrapper {
   width: 80%;
   text-align: center;
+  height: 100vh;
+  position: relative;
 }
 
 .answers {
@@ -440,7 +442,7 @@ button {
 
 .answer-wrapper button {
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   left: 25%;
 }
 
@@ -457,7 +459,7 @@ button {
   width: calc((100% / 3) - 3rem);
   height: auto;
   margin: 1%;
-  min-width: 150px;
+  min-width: 200px;
 }
 
 button:hover,
@@ -487,7 +489,7 @@ button:active {
   transition: all 0.5s;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 590px) {
   .wrapper {
     width: 100%;
     margin: 0 auto;
@@ -503,6 +505,12 @@ button:active {
   .form-button {
     width: 100%;
     margin: 0.4em auto;
+  }
+  .answer-img-container img {
+    width: 60vw;
+  }
+  .answer-img-container img:nth-child(n+2) {
+    display: none;
   }
 }
 

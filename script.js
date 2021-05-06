@@ -158,15 +158,17 @@ function buildquiz() {
                 </div>
 
                 <div class="wrapper question-wrapper">
-                    <div class="answers" id="answers">
+                        <div class="answers" id="answers">
                             <ul>
                                 <li> ${answers.join('')} </li>
+                                <a href="#question${currentquestion.id+1}"class="button-next" id="button-next-${currentquestion.id}"><button type="submit">Next</button></a>
                             </ul>
-                            <a href="#question${currentquestion.id+1}"class="button-next" id="button-next-${currentquestion.id}"><button type="submit">Next</button></a>
-                    </div>
+                                
+                        </div>
                         <div class="img-container">
                             <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
                         </div>
+                    
                 </div>
                 
             </div>
@@ -177,8 +179,7 @@ function buildquiz() {
 
     quizContainer.innerHTML = output.join('')
 
-    console.log('getting real last button', document.getElementById("button-next-5", myQuestions.length).id)
-        // not showing very last next button on  last quiz question
+    // not showing very last next button on  last quiz question
 
     let lastButton = document.getElementById("button-next-5")
     if (lastButton.id === "button-next-5") {
@@ -223,31 +224,22 @@ function showResults() {
     console.log('winning country is', winningCountry[0])
 
     return document.body.innerHTML = `
-    <div>
+   
         <div class="wrapper answer-wrapper">
-        <h2>You Got: ${winningCountry[0]}</h2>
-
-
-        <div class="answer-img-container wrapper">
-        
-        <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
-
-        <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},people" alt="People of ${winningCountry[0]}">
-
-        <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},nature" alt="Nature of ${winningCountry[0]}">
-
+            <h2>You Got: ${winningCountry[0]}</h2>
+            <div class="answer-img-container wrapper">
+                <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
+                <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},people" alt="People of ${winningCountry[0]}">
+                <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},nature" alt="Nature of ${winningCountry[0]}">
+            </div>
+            <a href="index.html" id="reset"><button type="submit">Start over</button></a>
         </div>
-
-        <a href="index.html" id="reset"><button type="submit">Start over</button></a>
-        </div>
-    </div>
+  
     `
 }
 
 
-
 buildquiz();
-
 
 
 submitBtn.addEventListener('click', showResults)
