@@ -113,14 +113,6 @@ const myQuestions = [{
 ];
 
 
-
-function filtering(countries) {
-
-    let filteredcountry = countries.filter((x) => x.weather.includes('mild') ? x.name : '')
-        // return filteredcountry[0].name
-    document.getElementById('main').innerHTML = filteredcountry.map((x) => x.name)
-}
-
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results')
 const submitBtn = document.getElementById('submit');
@@ -128,21 +120,23 @@ const submitBtn = document.getElementById('submit');
 function buildquiz() {
 
     const output = [];
+
     myQuestions.forEach((currentquestion, questionNumber) => {
         const answers = [];
         for (letter in currentquestion.answers) {
-            console.log(currentquestion.category)
             answers.push(
 
                 `
                 <div class="wrapper question-wrapper">
                     <ul>
-                        <label>
-                            <input type="radio" name="question${questionNumber}" value="${letter}">
+                    <li>
+                    <label> 
+                        <input type="radio" name="question${questionNumber}" value="${letter}">
+                          
                             ${letter} :
-                            ${currentquestion.answers[letter]}
-                            <br>
-                        </label>
+                                ${currentquestion.answers[letter]}
+                    </label>
+                    </li>
                     </ul>
                    
                 </div>
@@ -150,31 +144,44 @@ function buildquiz() {
             )
         }
 
+
         output.push(
             `
             <div class="wrapper">
                 <div class="question" id="question${currentquestion.id}">
                     <h2>${currentquestion.question}</h2> 
                 </div>
+
                 <div class="wrapper question-wrapper">
                     <div class="answers" id="answers">
-                        <ul>
-                            <li> ${answers.join('')} </li>
-                        </ul>
+                            <ul>
+                                <li> ${answers.join('')} </li>
+                            </ul>
+                            <a href="#question${currentquestion.id+1}" class="button-next" id="button-next-${currentquestion.id}"><button type="submit">Next</button></a>
                     </div>
-                    <div class="img-container">
-                    </div>
-                    <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
+                        <div class="img-container">
+                            <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
+                        </div>
                 </div>
-                <a href="#question${currentquestion.id+1}" class="button-next"><button type="submit">Next</button></a>
                 
             </div>
             `
         )
 
     })
+
     quizContainer.innerHTML = output.join('')
+
+    console.log('getting real last button', document.getElementById("button-next-5", myQuestions.length).id)
+        // not showing very last next button on  last quiz question
+
+    let lastButton = document.getElementById("button-next-5")
+    if (lastButton.id === "button-next-5") {
+        lastButton.style.display = "none"
+    }
+
 }
+
 
 
 function showResults() {
@@ -210,7 +217,14 @@ function showResults() {
 
     console.log('winning country is', winningCountry[0])
 
-    return resultsContainer.innerHTML = `winning ocuntry is ${winningCountry[0]}`
+    return document.body.innerHTML = `
+    <div>
+        <div class="answer-wrapper">
+        <h3>winning ocuntry is ${winningCountry[0]}</h3>
+        <a href="index.html" id="reset"><button type="submit">Start over</button></a>
+        </div>
+    </div>
+    `
 }
 
 
