@@ -168,13 +168,9 @@ function buildquiz() {
                         </div>
                         <div class="img-container">
                             <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
-                           
                         </div>
-                       
                 </div>
-              
             </div>
-           
             `
         )
 

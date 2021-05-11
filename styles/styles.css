@@ -358,8 +358,7 @@ h2 {
 .question-wrapper {
   display: flex;
   gap: 5%;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-self: auto;
   width: 100%;
   background-color: #f3f3ea;
   padding: 0 1rem;
@@ -374,7 +373,7 @@ ul {
 label {
   list-style: none;
   background-color: #2ea4d6;
-  padding: 1em 3rem;
+  padding: 1em 5rem;
   line-height: 1rem;
   border: solid 0.2em #2ea4d6;
   display: flex;
@@ -521,11 +520,24 @@ button:active {
   box-shadow: none;
 }
 
+@media (max-width: 830px) {
+  .question-wrapper {
+    flex-wrap: wrap;
+  }
+  label {
+    width: 50vw;
+  }
+}
+
 @media (max-width: 590px) {
   .wrapper {
-    width: 100%;
+    width: 90vw;
     margin: 0 auto;
     padding: 0;
+  }
+  .question-wrapper {
+    justify-content: initial;
+    width: 100%;
   }
   .img-container,
   img {
@@ -535,7 +547,6 @@ button:active {
     width: 80vw;
   }
   .form-button {
-    width: 100%;
     margin: 0.4em auto;
   }
   .answer-img-container img {

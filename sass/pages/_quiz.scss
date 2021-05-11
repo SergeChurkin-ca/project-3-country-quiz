@@ -21,8 +21,9 @@
     .question-wrapper {
         display: flex;
         gap: 5%;
-        flex-wrap: wrap;
-        justify-content: center;
+        // flex-wrap: wrap;
+        // justify-content: center;
+        align-self: auto;
         width: 100%;
         background-color: rgb(243, 243, 234);
         padding: 0 1rem;
@@ -38,7 +39,7 @@
     label {
         list-style: none;
         background-color: #2ea4d6;
-        padding: 1em 3rem;
+        padding: 1em 5rem;
         line-height: 1rem;
         border: solid 0.2em #2ea4d6;
         display: flex;

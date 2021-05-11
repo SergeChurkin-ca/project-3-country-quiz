@@ -1,8 +1,21 @@
+@media(max-width: 830px) {
+    .question-wrapper {
+        flex-wrap: wrap;
+    }
+    label {
+        width: 50vw;
+    }
+}
+
 @media(max-width: 590px) {
     .wrapper {
-        width: 100%;
+        width: 90vw;
         margin: 0 auto;
         padding: 0;
+    }
+    .question-wrapper {
+        justify-content: initial;
+        width: 100%;
     }
     .img-container,
     img {
@@ -12,7 +25,7 @@
         width: 80vw;
     }
     .form-button {
-        width: 100%;
+        // width: 100%;
         margin: 0.4em auto;
     }
     .answer-img-container img {
