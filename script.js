@@ -138,7 +138,7 @@ function buildquiz() {
                     <li>
                     <label class="container"> 
                         <input type="radio" name="question${questionNumber}" value="${letter}">
-                            ${letter} :
+                         <!--   ${letter} -->
                             ${currentquestion.answers[letter]}
                             <span class="checkmark"></span>
                     </label>
