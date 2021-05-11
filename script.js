@@ -136,10 +136,11 @@ function buildquiz() {
                 <div class="wrapper question-wrapper">
                     <ul>
                     <li>
-                    <label> 
+                    <label class="container"> 
                         <input type="radio" name="question${questionNumber}" value="${letter}">
                             ${letter} :
                             ${currentquestion.answers[letter]}
+                            <span class="checkmark"></span>
                     </label>
                     </li>
                     </ul>
@@ -161,17 +162,19 @@ function buildquiz() {
                         <div class="answers" id="answers">
                             <ul>
                                 <li> ${answers.join('')} </li>
-                                <a href="#question${currentquestion.id+1}"class="button-next" id="button-next-${currentquestion.id}"><button type="submit">Next</button></a>
+                               
                             </ul>
-                                
+                            <a href="#question${currentquestion.id+1}" class="button-next" id="button-next-${currentquestion.id}"><button type="submit">Next</button></a> 
                         </div>
                         <div class="img-container">
                             <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
+                           
                         </div>
-                    
+                       
                 </div>
-                
+              
             </div>
+           
             `
         )
 
@@ -203,7 +206,6 @@ function showResults() {
 
 
     });
-
 
 
     console.log(result)

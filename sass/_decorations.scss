@@ -1,7 +1,6 @@
     button:hover,
     button:focus {
         box-shadow: 0.2em 0.2em 0.2em grey;
-        border: solid 0.2em;
     }
     
     input:checked+label,
@@ -23,4 +22,5 @@
         transform: scale(0.9);
         font-weight: bold;
         transition: all 0.5s;
+        box-shadow: none;
     }
