@@ -163,11 +163,19 @@ function buildquiz() {
             console.log('check intermidiery results, line: 166', validationarray.length == parentNode.parentNode.id)
 
             if (validationarray.length != parentNode.parentNode.id) {
-                alert('check your inputs!')
+                // alert('check your inputs!');
+                // console.log('check this out');
+                console.log('fuck that shit', 'wrapper-' + parentNode.parentNode.id);
+                return document.getElementById(`wrapper-${parentNode.parentNode.id}`).style.border = 'solid 6px red'
+
             } else if (validationarray.length == parentNode.parentNode.id) {
                 console.log('good to go!')
+                return document.getElementById('wrapper-' + parentNode.parentNode.id).style.border = 'none'
+
             }
+
         }
+
         // end of next button validation
 
 
@@ -179,7 +187,7 @@ function buildquiz() {
                     <h2>${currentquestion.question}</h2> 
                 </div>
 
-                <div class="wrapper question-wrapper ">
+                <div class="wrapper question-wrapper" id="wrapper-${currentquestion.id}">
                         <div class="answers" id="${currentquestion.id}">
                         
                             <ul>
@@ -187,7 +195,9 @@ function buildquiz() {
                                
                             </ul>
                             <a href="#question${currentquestion.id+1}" class="button-next" id="button-next-${currentquestion.id}">
-                                <button type="submit" class="next" onclick="return ${validation}()">Next</button>
+                                <button type="submit" class="next" onclick="return ${validation}()">
+                                Next
+                                </button>
                             </a> 
 
                         </div>
