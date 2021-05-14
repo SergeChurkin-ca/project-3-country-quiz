@@ -269,7 +269,7 @@ body {
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: 8vw;
   color: #c25252;
   text-transform: capitalize;
 }
@@ -525,6 +525,13 @@ button:active {
   .question-wrapper {
     flex-wrap: wrap;
   }
+  .img-container,
+  img {
+    width: 60vw;
+    margin: 0 auto;
+    padding: 0 0 1rem;
+    height: auto;
+  }
   label {
     width: 50vw;
   }
@@ -543,6 +550,7 @@ button:active {
   .img-container,
   img {
     width: 80vw;
+    padding: 0 0 0.5rem;
   }
   label {
     width: 80vw;

@@ -112,14 +112,9 @@ const myQuestions = [{
     },
 ];
 
-
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results')
 const submitBtn = document.getElementById('submit');
-
-const preloadedImg = new Image();
-
-preloadedImg.src = "./assets/icons8-spinner.gif"
 
 
 
@@ -130,6 +125,7 @@ function buildquiz() {
     myQuestions.forEach((currentquestion, questionNumber) => {
         const answers = [];
         for (letter in currentquestion.answers) {
+
             answers.push(
 
                 `
@@ -137,34 +133,63 @@ function buildquiz() {
                     <ul>
                     <li>
                     <label class="container"> 
-                        <input type="radio" name="question${questionNumber}" value="${letter}">
+                    
+                        <input class="check" type="radio" name="question${questionNumber}" value="${letter}">
                          <!--   ${letter} -->
                             ${currentquestion.answers[letter]}
                             <span class="checkmark"></span>
                     </label>
                     </li>
                     </ul>
-                   
+            
                 </div>
+              
                 `
             )
+
         }
 
 
+        // next button validation results is added through loop, it's length is checked agains the container id number
+        function validation() {
+
+            let validationarray = []
+            for (let i = 0; i < document.querySelectorAll('input:checked').length; i++) {
+                validationarray.push(document.querySelectorAll('input:checked')[i].value)
+            }
+            console.log('line:162 validation array length:', validationarray.length)
+            console.log('line: 163 finding actual id of qeuestion again', parentNode.parentNode.id)
+
+            console.log('check intermidiery results, line: 166', validationarray.length == parentNode.parentNode.id)
+
+            if (validationarray.length != parentNode.parentNode.id) {
+                alert('check your inputs!')
+            } else if (validationarray.length == parentNode.parentNode.id) {
+                console.log('good to go!')
+            }
+        }
+        // end of next button validation
+
+
+        // quiz questions 
         output.push(
-            `
+                `
             <div class="wrapper">
                 <div class="question" id="question${currentquestion.id}">
                     <h2>${currentquestion.question}</h2> 
                 </div>
 
-                <div class="wrapper question-wrapper">
-                        <div class="answers" id="answers">
+                <div class="wrapper question-wrapper ">
+                        <div class="answers" id="${currentquestion.id}">
+                        
                             <ul>
                                 <li> ${answers.join('')} </li>
                                
                             </ul>
-                            <a href="#question${currentquestion.id+1}" class="button-next" id="button-next-${currentquestion.id}"><button type="submit">Next</button></a> 
+                            <a href="#question${currentquestion.id+1}" class="button-next" id="button-next-${currentquestion.id}">
+                                <button type="submit" class="next" onclick="return ${validation}()">Next</button>
+                            </a> 
+
                         </div>
                         <div class="img-container">
                             <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
@@ -172,19 +197,20 @@ function buildquiz() {
                 </div>
             </div>
             `
-        )
+            )
+            // end of quiz questions
 
     })
+
+
 
     quizContainer.innerHTML = output.join('')
 
     // not showing very last next button on  last quiz question
-
     let lastButton = document.getElementById("button-next-5")
     if (lastButton.id === "button-next-5") {
         lastButton.style.display = "none"
     }
-
 }
 
 
@@ -193,6 +219,7 @@ function showResults() {
 
     const answerContainers = quizContainer.querySelectorAll('.answers');
     let result = []
+
     myQuestions.forEach((currentQuestion, questionNumber) => {
 
         const answerContainer = answerContainers[questionNumber];
@@ -203,19 +230,14 @@ function showResults() {
 
     });
 
-
-    console.log(result)
     let findingPair = []
     for (let i = 0; i < result.length; i++) {
-
         findingPair.push(myQuestions[i].pairs[result[i]])
-
     }
 
-    console.log(findingPair.sort())
 
     const map = findingPair.reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map());
-    console.log('entries', [...map.entries()])
+    // console.log('entries', [...map.entries()])
 
     let winningCountry = [...map.entries()].filter((x) => x[1] === Math.max(...map.values()))[0]
 
@@ -226,23 +248,37 @@ function showResults() {
         <div class="wrapper answer-wrapper">
             <h2>You Got: ${winningCountry[0]}</h2>
             <div class="answer-img-container wrapper">
-                <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
-                <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},people" alt="People of ${winningCountry[0]}">
-                <img class="country-img" src="https://source.unsplash.com/450x750/?${winningCountry[0]},nature" alt="Nature of ${winningCountry[0]}">
+                <img class="country-img" src="https://source.unsplash.com/450x751/?${winningCountry[0]}+landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
+                <img class="country-img" src="https://source.unsplash.com/450x752/?${winningCountry[0]}+people" alt="People of ${winningCountry[0]}">
+                <img class="country-img" src="https://source.unsplash.com/450x753/?${winningCountry[0]}+nature" alt="Nature of ${winningCountry[0]}">
             </div>
             <a href="index.html" id="reset"><button type="submit">Start over</button></a>
         </div>
   
     `
-}
 
+}
 
 buildquiz();
 
 
+function validationOnSubmit() {
+    let validationarray = []
+    for (let i = 0; i < document.querySelectorAll('input:checked').length; i++) {
+        validationarray.push(document.querySelectorAll('input:checked')[i].value)
+    }
+    console.log('validation array:', validationarray.length === myQuestions.length)
+    if (validationarray.length === myQuestions.length) {
+        console.log('success!')
+    } else {
+        alert('check your inputs!')
+    }
+
+}
+
+submitBtn.addEventListener('click', validationOnSubmit)
 submitBtn.addEventListener('click', showResults)
 
 
-for (let i = 0; i < myQuestions.length; i++) {
-    console.log('getting one more list', myQuestions[i].category)
-}
+
+// submitBtn.addEventListener('click', validation)
