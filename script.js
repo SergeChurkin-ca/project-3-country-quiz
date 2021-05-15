@@ -115,7 +115,7 @@ const myQuestions = [{
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 
-const submitBtn = document.createElement('button')
+const submitBtn = document.createElement('button');
 submitBtn.innerHTML = 'Submit';
 
 function buildquiz() {
@@ -127,25 +127,20 @@ function buildquiz() {
         for (letter in currentquestion.answers) {
 
             answers.push(
-
                 `
                 <div class="wrapper question-wrapper">
                     <ul>
-                    <li>
-                    <label class="container"> 
-                    
-                        <input class="check" type="radio" name="question${questionNumber}" value="${letter}">
-                         <!--   ${letter} -->
-                            ${currentquestion.answers[letter]}
-                            <span class="checkmark"></span>
-                    </label>
-                    </li>
+                        <li>
+                            <label class="container"> 
+                                <input class="check" type="radio" name="question${questionNumber}" value="${letter}">
+                                    ${currentquestion.answers[letter]}
+                                    <span class="checkmark"></span>
+                            </label>
+                        </li>
                     </ul>
                 </div>
-              
                 `
             )
-
         }
 
 
@@ -161,29 +156,21 @@ function buildquiz() {
 
             // console.log('check intermidiery results, line: 166', validationarray.length == parentNode.parentNode.id)
 
-            // keep line 165 -
-
-            if (document.querySelectorAll('input:checked').length == 0) {
-
-                console.log('check again line 166', document.querySelectorAll('input:checked').length)
-                    // alert('please check your inputs!');
-                    // console.log('check this out');
-                console.log('getting the wrapper', 'wrapper-' + parentNode.parentNode.id);
-                console.log(document.getElementsByClassName('wrapper-2'))
+            if (validationarray.length != parentNode.parentNode.id) {
+                alert('please check your inputs')
+                    // console.log('check again line 166', document.querySelectorAll('input:checked').length)
+                    // console.log('getting the wrapper', 'wrapper-' + parentNode.parentNode.id);
+                    // console.log(document.getElementsByClassName('wrapper-2'))
                     // return document.getElementById(`wrapper-${parentNode.parentNode.id}`).style.border = 'solid 6px red'
 
             } else if (validationarray.length == parentNode.parentNode.id) {
                 validationarray = []
-                console.log('delete validation array', validationarray)
-                console.log('good to go!')
-                    // return document.getElementById('wrapper-' + parentNode.parentNode.id).style.border = 'none'
-                    // return document.getElementsByClassName('wrapper').nextSibling.style = 'display: none'
+                    // console.log('delete validation array', validationarray)
+                    // console.log('good to go!')
 
                 document.querySelector(`.wrapper-${parentNode.parentNode.id}`).nextElementSibling.style = 'display: block; opacity: 1;';
                 document.querySelector(`.wrapper-${parentNode.parentNode.id}`).style = 'display: none; opacity: 0;';
-
             }
-
         }
 
         // end of next button validation
@@ -235,11 +222,14 @@ function buildquiz() {
     }
 }
 
-// dont' display submit button in every question
-
-
-
+// display questions dynamically
 function showResults() {
+
+    // very last error handler to verify last question iput
+    window.onerror = function() {
+        alert('Please check you inputs')
+        return true;
+    }
 
     const answerContainers = quizContainer.querySelectorAll('.answers');
     let result = []
@@ -251,8 +241,9 @@ function showResults() {
         const userAnswer = (answerContainer.querySelector(selector)).value;
         result.push(userAnswer)
 
-
     });
+
+
 
     let findingPair = []
     for (let i = 0; i < result.length; i++) {
@@ -267,6 +258,7 @@ function showResults() {
 
     console.log('winning country is', winningCountry[0])
 
+
     return document.body.innerHTML = `
    
         <div class="wrapper answer-wrapper">
@@ -280,14 +272,11 @@ function showResults() {
         </div>
   
     `
-
 }
 
+// end of showresults function
 buildquiz();
+
+// adding submit button dynamically on the last question
 document.getElementById('wrapper-5').insertAdjacentElement('afterend', submitBtn)
-
-
 submitBtn.addEventListener('click', showResults)
-
-
-// submitBtn.style.display = 'none'
