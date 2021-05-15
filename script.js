@@ -128,7 +128,7 @@ function buildquiz() {
 
             answers.push(
                 `
-                <div class="wrapper question-wrapper">
+                <div class="wrapper question-container">
                     <ul>
                         <li>
                             <label class="container"> 
@@ -177,10 +177,10 @@ function buildquiz() {
         // quiz questions 
         output.push(
 
-            `
+                `
             <div class="wrapper wrapper-${currentquestion.id} wrapper-output">
                 <div class="question" id="question${currentquestion.id}">
-                    <h2>${currentquestion.question}</h2> 
+                    <h2>${currentquestion.question} <span>${currentquestion.id} / ${myQuestions.length}</span></h2> 
                 </div>
                 
                 <div class="wrapper question-wrapper" id="wrapper-${currentquestion.id}">
@@ -205,11 +205,8 @@ function buildquiz() {
                
             </div>
             `
-        )
-
-        // end of quiz questions
-
-
+            )
+            // end of quiz questions
     })
 
 

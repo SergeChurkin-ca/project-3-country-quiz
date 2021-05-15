@@ -12,6 +12,10 @@
     label {
         width: 50vw;
     }
+    h2 span {
+        float: none;
+        white-space: nowrap;
+    }
 }
 
 @media(max-width: 590px) {
