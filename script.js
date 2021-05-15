@@ -113,10 +113,10 @@ const myQuestions = [{
 ];
 
 const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results')
-const submitBtn = document.getElementById('submit');
+const resultsContainer = document.getElementById('results');
 
-
+const submitBtn = document.createElement('button')
+submitBtn.innerHTML = 'Submit';
 
 function buildquiz() {
 
@@ -141,7 +141,6 @@ function buildquiz() {
                     </label>
                     </li>
                     </ul>
-            
                 </div>
               
                 `
@@ -167,11 +166,11 @@ function buildquiz() {
             if (document.querySelectorAll('input:checked').length == 0) {
 
                 console.log('check again line 166', document.querySelectorAll('input:checked').length)
-                alert('please check your inputs!');
-                // console.log('check this out');
+                    // alert('please check your inputs!');
+                    // console.log('check this out');
                 console.log('getting the wrapper', 'wrapper-' + parentNode.parentNode.id);
                 console.log(document.getElementsByClassName('wrapper-2'))
-                return document.getElementById(`wrapper-${parentNode.parentNode.id}`).style.border = 'solid 6px red'
+                    // return document.getElementById(`wrapper-${parentNode.parentNode.id}`).style.border = 'solid 6px red'
 
             } else if (validationarray.length == parentNode.parentNode.id) {
                 validationarray = []
@@ -179,22 +178,24 @@ function buildquiz() {
                 console.log('good to go!')
                     // return document.getElementById('wrapper-' + parentNode.parentNode.id).style.border = 'none'
                     // return document.getElementsByClassName('wrapper').nextSibling.style = 'display: none'
-                document.querySelector(`.wrapper-${parentNode.parentNode.id}`).nextElementSibling.style = 'display: block; opacity: 1;'
+
+                document.querySelector(`.wrapper-${parentNode.parentNode.id}`).nextElementSibling.style = 'display: block; opacity: 1;';
+                document.querySelector(`.wrapper-${parentNode.parentNode.id}`).style = 'display: none; opacity: 0;';
+
             }
 
         }
 
         // end of next button validation
-
-
         // quiz questions 
         output.push(
-                `
+
+            `
             <div class="wrapper wrapper-${currentquestion.id} wrapper-output">
                 <div class="question" id="question${currentquestion.id}">
                     <h2>${currentquestion.question}</h2> 
                 </div>
-
+                
                 <div class="wrapper question-wrapper" id="wrapper-${currentquestion.id}">
                         <div class="answers" id="${currentquestion.id}">
                         
@@ -213,13 +214,16 @@ function buildquiz() {
                             <img src="https://source.unsplash.com/450x450/?${currentquestion.category}">
                         </div>
                 </div>
+
+               
             </div>
             `
-            )
-            // end of quiz questions
+        )
+
+        // end of quiz questions
+
 
     })
-
 
 
     quizContainer.innerHTML = output.join('')
@@ -230,6 +234,8 @@ function buildquiz() {
         lastButton.style.display = "none"
     }
 }
+
+// dont' display submit button in every question
 
 
 
@@ -278,26 +284,10 @@ function showResults() {
 }
 
 buildquiz();
+document.getElementById('wrapper-5').insertAdjacentElement('afterend', submitBtn)
 
 
-function validationOnSubmit() {
-    let validationarray = []
-    for (let i = 0; i < document.querySelectorAll('input:checked').length; i++) {
-        validationarray.push(document.querySelectorAll('input:checked')[i].value)
-    }
-    console.log('validation array:', validationarray.length === myQuestions.length)
-    if (validationarray.length === myQuestions.length) {
-        console.log('success!')
-    } else {
-        alert('check your inputs!')
-
-    }
-
-}
-
-submitBtn.addEventListener('click', validationOnSubmit)
 submitBtn.addEventListener('click', showResults)
 
 
-
-// submitBtn.addEventListener('click', validation)
+// submitBtn.style.display = 'none'

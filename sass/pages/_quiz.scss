@@ -1,201 +1,195 @@
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    body {
-        width: 100%;
-        height: auto;
-    }
-    
-    #app {
-        width: 100%;
-        height: auto;
-    }
-    
-    .wrapper {
-        width: 70vw;
-        margin: 0 auto;
-    }
-    
-    h1 {
-        text-align: center;
-    }
-    
-    h2 {
-        background-color: #640D36;
-        color: white;
-        width: 100%;
-        padding: 1em;
-    }
-    
-    .question-wrapper {
-        display: flex;
-        gap: 5%;
-        align-self: auto;
-        width: 100%;
-        background-color: rgb(243, 243, 234);
-        padding: 0 1rem;
-    }
-    
-    ul {
-        padding: 0.5em;
-        list-style: none;
-        display: flex;
-    }
-    
-    // checkbox
-    label {
-        list-style: none;
-        background-color: #2ea4d6;
-        padding: 1em 5rem;
-        line-height: 1rem;
-        border: solid 0.2em #2ea4d6;
-        display: flex;
-        width: 30vw;
-    }
-    
-    input[type=radio] {
-        display: none;
-    }
-    
-    .container {
-        position: relative;
-    }
-    
-    .checkmark {
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
-    }
-    
-    .container input:checked~.checkmark {
-        background-color: #640D36;
-    }
-    
-    .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
-    
-    .container input:checked~.checkmark:after {
-        display: block;
-    }
-    
-    .container .checkmark:after {
-        left: 9px;
-        top: 5px;
-        width: 8px;
-        height: 12px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        transform: rotate(45deg);
-    }
-    
-    // image containers
-    .img-container,
-    .country-img {
-        background: url('../../assets/spinner.875550b4.gif') no-repeat;
-        background-size: 15vw;
-        background-position: 50% 20%;
-        padding: 1rem;
-        margin: 0 auto;
-        margin-top: 2rem;
-        min-width: 250px;
-        height: 60vh;
-    }
-    
-    img {
-        width: 100%;
-        height: auto;
-        min-width: 100px;
-        // padding: 2em 2em;
-    }
-    
-    // buttons
-    button {
-        background-color: lightgray;
-        width: calc((100% / 2) - 1em);
-        padding: 0.5em 0.5em;
-        margin: 1em 1em;
-    }
-    
-    button {
-        background-color: #640D36;
-        color: white;
-    }
-    
-    .button-next button {
-        margin-left: 0.6em;
-    }
-    
-    .form-button {
-        background-color: rgb(219, 226, 233);
-        color: rgb(37, 37, 37);
-        border: solid 0.2em rgb(219, 226, 233);
-    }
-    
-    // ***************************************
-    //dynamically added content on answer page
-    // ***************************************
-    .answer-wrapper {
-        width: 80%;
-        text-align: center;
-        height: 100vh;
-        position: relative;
-    }
-    
-    .answers {
-        width: 50%;
-    }
-    
-    .answer-wrapper button {
-        position: absolute;
-        bottom: 1rem;
-        left: 25%;
-    }
-    
-    .answer-img-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1%;
-        width: 100%;
-        margin: 0 auto 1rem;
-        justify-content: center;
-    }
-    
-    .answer-img-container img {
-        width: calc((100% / 3) - 3rem);
-        height: auto;
-        margin: 1%;
-        min-width: 200px;
-    }
-    
-    .quiz {
-        position: relative;
-    }
-    
-    .wrapper-output {
-        // position: absolute;
-        // top: 0;
-    }
-    
-    //  experimenting with overlaying containers
-    .quiz .wrapper-output:nth-child(n+3) {
-        display: none;
-        position: absolute;
-        top: 0;
-        opacity: 0;
-        transition: .6s ease all;
-    }
-    
-    .wrapper-2 {
-        display: none;
-        position: absolute;
-        top: 0;
-        opacity: 0;
-        transition: .6s ease all;
-    }
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: auto;
+}
+
+#app {
+    width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    background-color: #640D36;
+    color: white;
+    width: 100%;
+    padding: 1em;
+}
+
+.question-wrapper {
+    display: flex;
+    gap: 5%;
+    align-self: auto;
+    width: 100%;
+    background-color: rgb(243, 243, 234);
+    padding: 0 1rem;
+}
+
+ul {
+    padding: 0.5em;
+    list-style: none;
+    display: flex;
+}
+
+// checkbox
+label {
+    list-style: none;
+    background-color: #2ea4d6;
+    padding: 1em 5rem;
+    line-height: 1rem;
+    border: solid 0.2em #2ea4d6;
+    display: flex;
+    width: 30vw;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+.container {
+    position: relative;
+}
+
+.checkmark {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.container input:checked~.checkmark {
+    background-color: #640D36;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 8px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+// image containers
+.img-container,
+.country-img {
+    background: url('../../assets/spinner.875550b4.gif') no-repeat;
+    background-size: 15vw;
+    background-position: 50% 20%;
+    padding: 1rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    min-width: 250px;
+    height: 60vh;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    min-width: 100px;
+    // padding: 2em 2em;
+}
+
+// buttons
+button {
+    background-color: lightgray;
+    width: calc((100% / 2) - 1em);
+    padding: 0.5em 0.5em;
+    margin: 1em 1em;
+}
+
+button {
+    background-color: #640D36;
+    color: white;
+}
+
+.button-next button {
+    margin-left: 0.6em;
+}
+
+// .form-button {
+//     background-color: rgb(219, 226, 233);
+//     color: rgb(37, 37, 37);
+//     border: solid 0.2em rgb(219, 226, 233);
+// }
+// ***************************************
+//dynamically added content on answer page
+// ***************************************
+.answer-wrapper {
+    width: 80%;
+    text-align: center;
+    height: 100vh;
+    position: relative;
+}
+
+.answers {
+    width: 50%;
+}
+
+.answer-wrapper button {
+    position: absolute;
+    bottom: 1rem;
+    left: 25%;
+}
+
+.answer-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+    width: 100%;
+    margin: 0 auto 1rem;
+    justify-content: center;
+}
+
+.answer-img-container img {
+    width: calc((100% / 3) - 3rem);
+    height: auto;
+    margin: 1%;
+    min-width: 200px;
+}
+
+//  experimenting with overlaying containers
+.quiz {
+    position: relative;
+}
+
+.quiz .wrapper-output:nth-child(n+3) {
+    display: none;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    opacity: 0.2 linear;
+}
+
+.wrapper-2 {
+    display: none;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    opacity: 0.2 linear;
+}

@@ -465,12 +465,6 @@ button {
   margin-left: 0.6em;
 }
 
-.form-button {
-  background-color: #dbe2e9;
-  color: #252525;
-  border: solid 0.2em #dbe2e9;
-}
-
 .answer-wrapper {
   width: 80%;
   text-align: center;
@@ -513,7 +507,7 @@ button {
   position: absolute;
   top: 0;
   opacity: 0;
-  transition: .6s ease all;
+  opacity: 0.2 linear;
 }
 
 .wrapper-2 {
@@ -521,7 +515,7 @@ button {
   position: absolute;
   top: 0;
   opacity: 0;
-  transition: .6s ease all;
+  opacity: 0.2 linear;
 }
 
 button:hover,
