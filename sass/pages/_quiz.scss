@@ -173,3 +173,29 @@
         margin: 1%;
         min-width: 200px;
     }
+    
+    .quiz {
+        position: relative;
+    }
+    
+    .wrapper-output {
+        // position: absolute;
+        // top: 0;
+    }
+    
+    //  experimenting with overlaying containers
+    .quiz .wrapper-output:nth-child(n+3) {
+        display: none;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        transition: .6s ease all;
+    }
+    
+    .wrapper-2 {
+        display: none;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        transition: .6s ease all;
+    }

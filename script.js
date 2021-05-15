@@ -157,21 +157,29 @@ function buildquiz() {
             for (let i = 0; i < document.querySelectorAll('input:checked').length; i++) {
                 validationarray.push(document.querySelectorAll('input:checked')[i].value)
             }
-            console.log('line:162 validation array length:', validationarray.length)
-            console.log('line: 163 finding actual id of qeuestion again', parentNode.parentNode.id)
+            // console.log('line:162 validation array length:', validationarray.length)
+            // console.log('line: 163 finding actual id of qeuestion again', parentNode.parentNode.id)
 
-            console.log('check intermidiery results, line: 166', validationarray.length == parentNode.parentNode.id)
+            // console.log('check intermidiery results, line: 166', validationarray.length == parentNode.parentNode.id)
 
-            if (validationarray.length != parentNode.parentNode.id) {
-                // alert('check your inputs!');
+            // keep line 165 -
+
+            if (document.querySelectorAll('input:checked').length == 0) {
+
+                console.log('check again line 166', document.querySelectorAll('input:checked').length)
+                alert('please check your inputs!');
                 // console.log('check this out');
-                console.log('fuck that shit', 'wrapper-' + parentNode.parentNode.id);
+                console.log('getting the wrapper', 'wrapper-' + parentNode.parentNode.id);
+                console.log(document.getElementsByClassName('wrapper-2'))
                 return document.getElementById(`wrapper-${parentNode.parentNode.id}`).style.border = 'solid 6px red'
 
             } else if (validationarray.length == parentNode.parentNode.id) {
+                validationarray = []
+                console.log('delete validation array', validationarray)
                 console.log('good to go!')
-                return document.getElementById('wrapper-' + parentNode.parentNode.id).style.border = 'none'
-
+                    // return document.getElementById('wrapper-' + parentNode.parentNode.id).style.border = 'none'
+                    // return document.getElementsByClassName('wrapper').nextSibling.style = 'display: none'
+                document.querySelector(`.wrapper-${parentNode.parentNode.id}`).nextElementSibling.style = 'display: block; opacity: 1;'
             }
 
         }
@@ -182,7 +190,7 @@ function buildquiz() {
         // quiz questions 
         output.push(
                 `
-            <div class="wrapper">
+            <div class="wrapper wrapper-${currentquestion.id} wrapper-output">
                 <div class="question" id="question${currentquestion.id}">
                     <h2>${currentquestion.question}</h2> 
                 </div>
@@ -282,6 +290,7 @@ function validationOnSubmit() {
         console.log('success!')
     } else {
         alert('check your inputs!')
+
     }
 
 }
