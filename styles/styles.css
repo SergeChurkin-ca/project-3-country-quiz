@@ -290,6 +290,10 @@ button {
   font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300)));
 }
 
+.modal p {
+  font-size: 30px;
+}
+
 .welcome-container {
   text-align: center;
   height: 100vh;
@@ -524,10 +528,26 @@ button {
   text-align: center;
 }
 
+.modal p,
+.modal > :first-child {
+  cursor: pointer;
+}
+
 .modal p {
   margin: 20%;
   padding: 5rem;
   height: 50vh;
+}
+
+.modal {
+  color: #eee;
+}
+
+.modal > :first-child {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  font-size: 30px;
 }
 
 button:hover,

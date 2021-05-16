@@ -195,12 +195,26 @@ button {
     height: 100%;
     background: rgb(126, 60, 126);
     text-align: center;
-    // padding: 3rem 0;
+}
+
+.modal p,
+.modal> :first-child {
+    cursor: pointer;
 }
 
 .modal p {
     margin: 20%;
     padding: 5rem;
-    // background: green;
     height: 50vh;
+}
+
+.modal {
+    color: #eee;
+}
+
+.modal> :first-child {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    font-size: 30px;
 }

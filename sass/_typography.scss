@@ -23,3 +23,7 @@ label {
 button {
     font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300)));
 }
+
+.modal p {
+    font-size: 30px;
+}
