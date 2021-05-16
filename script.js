@@ -118,6 +118,10 @@ const resultsContainer = document.getElementById('results');
 const submitBtn = document.createElement('button');
 submitBtn.innerHTML = 'Submit';
 
+
+let modal = document.getElementById("Mymodal");
+modal.style.display = 'none'
+
 function buildquiz() {
 
     const output = [];
@@ -142,7 +146,7 @@ function buildquiz() {
                 `
             )
         }
-
+        // Modal
 
         // next button validation results is added through loop, it's length is checked agains the container id number
         function validation() {
@@ -151,23 +155,14 @@ function buildquiz() {
             for (let i = 0; i < document.querySelectorAll('input:checked').length; i++) {
                 validationarray.push(document.querySelectorAll('input:checked')[i].value)
             }
-            // console.log('line:162 validation array length:', validationarray.length)
-            // console.log('line: 163 finding actual id of qeuestion again', parentNode.parentNode.id)
-
-            // console.log('check intermidiery results, line: 166', validationarray.length == parentNode.parentNode.id)
-
             if (validationarray.length != parentNode.parentNode.id) {
-                alert('please check your inputs')
-                    // console.log('check again line 166', document.querySelectorAll('input:checked').length)
-                    // console.log('getting the wrapper', 'wrapper-' + parentNode.parentNode.id);
-                    // console.log(document.getElementsByClassName('wrapper-2'))
-                    // return document.getElementById(`wrapper-${parentNode.parentNode.id}`).style.border = 'solid 6px red'
-
+                modal.style.display = 'block'
+                modal.onclick = () => {
+                    modal.style.display = 'none'
+                }
             } else if (validationarray.length == parentNode.parentNode.id) {
                 validationarray = []
-                    // console.log('delete validation array', validationarray)
-                    // console.log('good to go!')
-
+                modal.style.display = 'none'
                 document.querySelector(`.wrapper-${parentNode.parentNode.id}`).nextElementSibling.style = 'display: block; opacity: 1;';
                 document.querySelector(`.wrapper-${parentNode.parentNode.id}`).style = 'display: none; opacity: 0;';
             }
@@ -223,8 +218,9 @@ function showResults() {
 
     // very last error handler to verify last question iput
     window.onerror = function() {
-        alert('Please check you inputs')
-        return true;
+        // alert('Please check you inputs')
+        // return true;
+        modal.style.display = 'block'
     }
 
     const answerContainers = quizContainer.querySelectorAll('.answers');
