@@ -180,7 +180,7 @@ function buildquiz() {
                 `
             <div class="wrapper wrapper-${currentquestion.id} wrapper-output">
                 <div class="question" id="question${currentquestion.id}">
-                    <h2>${currentquestion.question} <span>${currentquestion.id} / ${myQuestions.length}</span></h2> 
+                    <h3>${currentquestion.question} <span>${currentquestion.id} / ${myQuestions.length}</span></h3> 
                 </div>
                 
                 <div class="wrapper question-wrapper" id="wrapper-${currentquestion.id}">
@@ -261,9 +261,9 @@ function showResults() {
         <div class="wrapper answer-wrapper">
             <h2>You Got: ${winningCountry[0]}</h2>
             <div class="answer-img-container wrapper">
-                <img class="country-img" src="https://source.unsplash.com/450x751/?${winningCountry[0]}+landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
-                <img class="country-img" src="https://source.unsplash.com/450x752/?${winningCountry[0]}+people" alt="People of ${winningCountry[0]}">
-                <img class="country-img" src="https://source.unsplash.com/450x753/?${winningCountry[0]}+nature" alt="Nature of ${winningCountry[0]}">
+                <img class="country-img" src="https://source.unsplash.com/450x751/?${winningCountry[0]},landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
+                <img class="country-img" src="https://source.unsplash.com/450x752/?${winningCountry[0]},people" alt="Random placeholder image of landmark in ${winningCountry[0]}">
+                <img class="country-img" src="https://source.unsplash.com/450x753/?${winningCountry[0]},nature" alt="Random placeholder image of landmark in ${winningCountry[0]}">
             </div>
             <a href="index.html" id="reset"><button type="submit">Start over</button></a>
         </div>
@@ -275,5 +275,5 @@ function showResults() {
 buildquiz();
 
 // adding submit button dynamically on the last question
-document.getElementById('wrapper-5').insertAdjacentElement('afterend', submitBtn)
+document.getElementById('5').insertAdjacentElement('beforeend', submitBtn)
 submitBtn.addEventListener('click', showResults)

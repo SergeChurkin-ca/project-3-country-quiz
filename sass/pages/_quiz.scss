@@ -13,18 +13,18 @@ body {
     padding: 0 0 0.5rem;
 }
 
-h1 {
+h2 {
     text-align: center;
 }
 
-h2 {
+h3 {
     background-color: #640D36;
     color: white;
     width: 100%;
     padding: 1em;
 }
 
-h2 span {
+h3 span {
     float: right;
 }
 
@@ -144,19 +144,11 @@ img {
 
 // buttons
 button {
-    background-color: lightgray;
-    width: calc((100% / 2) - 1em);
-    padding: 0.5em 0.5em;
-    margin: 1em 1em;
-}
-
-button {
     background-color: #640D36;
+    width: calc((100% / 2) - 1em);
+    margin: 1rem 1rem;
+    padding: 0.5rem 0.5rem;
     color: white;
-}
-
-.button-next button {
-    margin-left: 0.6em;
 }
 
 // ***************************************

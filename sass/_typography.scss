@@ -2,22 +2,24 @@ body {
     font-family: 'Alfa Slab One', cursive;
 }
 
-h1 {
-    font-size: 5vw;
+h1,
+h2 {
+    font-size: calc(32px + (85 - 32) * ((100vw - 300px) / (1600 - 300)));
     color: rgb(194, 82, 82);
     text-transform: capitalize;
 }
 
-h2,
+h2 {
+    font-size: 35px;
+    padding: 0.5rem 0 1rem;
+}
+
+h3,
 label {
-    font-size: 25px;
+    font-size: 18px;
     font-family: 'Libre Baskerville', serif;
 }
 
 button {
-    font-size: calc(10px + (25 - 10) * ((100vw - 300px) / (1600 - 300)));
-}
-
-label {
-    font-size: 20px;
+    font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300)));
 }
