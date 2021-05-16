@@ -1,26 +1,26 @@
-    button:hover,
-    button:focus {
-        box-shadow: 0.2em 0.2em 0.2em grey;
-    }
-    
-    input:checked+label,
-    label:hover {
-        background-color: rgb(19, 117, 150);
-        border: outset 0.2em rgb(19, 117, 150);
-        transform: scale(1.025);
-        transition: all 0.3s;
-        cursor: pointer;
-    }
-    
-    label:hover,
-    input {
-        cursor: pointer;
-    }
-    
-    button:active {
-        display: inline-block;
-        transform: scale(0.9);
-        font-weight: bold;
-        transition: all 0.5s;
-        box-shadow: none;
-    }
+button:hover,
+button:focus {
+    box-shadow: 2px 2px 2px grey;
+}
+
+input:checked+label,
+label:hover {
+    background-color: rgb(19, 117, 150);
+    border: outset 0.2rem rgb(19, 117, 150);
+    transform: scale(1.025);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+label:hover,
+input {
+    cursor: pointer;
+}
+
+button:active {
+    display: inline-block;
+    transform: scale(0.9);
+    font-weight: bold;
+    transition: all 0.5s;
+    box-shadow: none;
+}

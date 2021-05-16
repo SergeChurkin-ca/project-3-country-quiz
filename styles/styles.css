@@ -307,7 +307,7 @@ button {
   padding: 2em;
   display: inline-block;
   color: white;
-  text-shadow: #12121b 2px 3px;
+  text-shadow: -3px 3px 3px #12121b;
   position: relative;
   z-index: 1;
   text-align: right;
@@ -407,7 +407,7 @@ label {
   background-color: #2ea4d6;
   padding: 1em 5rem;
   line-height: 1rem;
-  border: solid 0.2em #2ea4d6;
+  border: solid 0.2rem #2ea4d6;
   display: flex;
   width: 30vw;
 }
@@ -422,7 +422,7 @@ input[type=radio] {
 
 .checkmark {
   position: absolute;
-  top: 1rem;
+  top: 0.9rem;
   left: 1rem;
   height: 25px;
   width: 25px;
@@ -492,8 +492,8 @@ button {
 
 .answer-wrapper button {
   position: absolute;
-  bottom: 1rem;
-  left: 25%;
+  bottom: 0.5rem;
+  right: 20%;
 }
 
 .answer-img-container {
@@ -514,13 +514,13 @@ button {
 
 button:hover,
 button:focus {
-  box-shadow: 0.2em 0.2em 0.2em grey;
+  box-shadow: 2px 2px 2px grey;
 }
 
 input:checked + label,
 label:hover {
   background-color: #137596;
-  border: outset 0.2em #137596;
+  border: outset 0.2rem #137596;
   transform: scale(1.025);
   transition: all 0.3s;
   cursor: pointer;
@@ -546,7 +546,7 @@ button:active {
   .img-container,
   img {
     width: 60vw;
-    margin: 0 auto;
+    margin: 0.5rem auto;
     padding: 0 0 1rem;
     height: auto;
   }
@@ -571,18 +571,19 @@ button:active {
   }
   button {
     width: 100%;
+    margin: 0.5rem 1rem;
+  }
+  .answer-wrapper button {
+    width: 50vw;
     margin: 0 auto;
   }
   .img-container,
   img {
-    width: 90vw;
+    width: 85vw;
     padding: 0 0 0.5rem;
   }
   label {
     width: 80vw;
-  }
-  .form-button {
-    margin: 0.4em auto;
   }
   .answer-img-container img {
     width: 100%;
@@ -591,28 +592,4 @@ button:active {
   .answer-img-container img:nth-child(n+2) {
     display: none;
   }
-}
-
-footer {
-  text-align: center;
-  background-color: grey;
-  padding: 0.2em;
-  position: relative;
-  width: 100%;
-}
-
-footer .social li {
-  display: inline;
-  background-color: grey;
-  border: 0;
-}
-
-footer ul {
-  text-align: center;
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }

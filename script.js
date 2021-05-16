@@ -188,7 +188,6 @@ function buildquiz() {
                         
                             <ul>
                                 <li> ${answers.join('')} </li>
-                               
                             </ul>
                             <a href="#question${currentquestion.id+1}" class="button-next" id="button-next-${currentquestion.id}">
                                 <button type="submit" class="next" onclick="return ${validation}()">
@@ -259,7 +258,7 @@ function showResults() {
     return document.body.innerHTML = `
    
         <div class="wrapper answer-wrapper">
-            <h2>You Got: ${winningCountry[0]}</h2>
+            <h3>You Got: ${winningCountry[0]}</h3>
             <div class="answer-img-container wrapper">
                 <img class="country-img" src="https://source.unsplash.com/450x751/?${winningCountry[0]},landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
                 <img class="country-img" src="https://source.unsplash.com/450x752/?${winningCountry[0]},people" alt="Random placeholder image of landmark in ${winningCountry[0]}">
