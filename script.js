@@ -42,12 +42,12 @@ const myQuestions = [{
         question: "Please chose one of these cuisines",
         category: "cuisine",
         answers: {
-            a: "Seafood",
-            b: "Asian",
-            c: "Sausages",
-            d: "Meats",
-            e: "Oatmeal",
-            g: "French"
+            a: "seafood",
+            b: "asian",
+            c: "sausages",
+            d: "meats",
+            e: "oatmeal",
+            g: "french"
 
         },
         pairs: {
@@ -111,13 +111,13 @@ const myQuestions = [{
         question: "What are the most enjoyable ways of life?",
         category: "lifestyle",
         answers: {
-            a: 'Secluded',
-            b: 'Vibrant city life',
-            c: 'Adventurous',
-            d: 'Rural',
-            e: 'Journeys and outdoors',
-            f: 'Island style',
-            g: 'Hardworking'
+            a: 'secluded',
+            b: 'vibrant city life',
+            c: 'adventurous',
+            d: 'rural',
+            e: 'journeys and outdoors',
+            f: 'island style',
+            g: 'hardworking'
 
         },
         pairs: {
@@ -135,14 +135,14 @@ const myQuestions = [{
         question: "What type of house makes you comfortable?",
         category: "house",
         answers: {
-            a: "Condominium",
-            b: "Ocean Villa",
-            c: "Town House",
-            d: "Jungle Hut",
-            e: "City Appartment",
-            f: "Spacious estate with garden",
-            g: "Farm House",
-            h: "Wood Log House"
+            a: "condominium",
+            b: "ocean villa",
+            c: "town house",
+            d: "jungle hut",
+            e: "city appartment",
+            f: "spacious estate with garden",
+            g: "farm house",
+            h: "wood log house"
 
         },
         pairs: {
@@ -161,14 +161,14 @@ const myQuestions = [{
         question: "Where is most likely you’ll find yourself on a Sunday morning after the wild party?",
         category: "party",
         answers: {
-            a: "Place of worship",
-            b: "Home, sweet home",
-            c: "Parent's house",
-            d: "Police station",
-            e: "Hospital",
-            f: "Airport",
-            g: "Beach",
-            h: "In the woods"
+            a: "place of worship",
+            b: "home, sweet home",
+            c: "parent's house",
+            d: "police station",
+            e: "hospital",
+            f: "airport",
+            g: "beach",
+            h: "in the woods"
 
         },
         pairs: {
@@ -187,14 +187,14 @@ const myQuestions = [{
         question: "What type of people annyos you?",
         category: "people",
         answers: {
-            a: "Lazy",
-            b: "Talkative",
-            c: "Uncultured",
-            d: "Rude",
-            e: "Fancy",
-            f: "Silent",
-            g: "Overly polite",
-            h: "Slow"
+            a: "lazy",
+            b: "talkative",
+            c: "uncultured",
+            d: "rude",
+            e: "fancy",
+            f: "silent",
+            g: "overly polite",
+            h: "slow"
 
         },
         pairs: {
@@ -213,14 +213,14 @@ const myQuestions = [{
         question: "What would you wear to a holiday party?",
         category: "fashion",
         answers: {
-            a: "Arty fashion",
-            b: "Casual",
-            c: "Chic fashion",
-            d: "Sporty",
-            e: "Loose long dress/robe",
-            f: "Bright beach wear",
-            g: "Swimweear",
-            h: "Vintage"
+            a: "arty fashion",
+            b: "casual",
+            c: "chic fashion",
+            d: "sporty",
+            e: "loose long dress/robe",
+            f: "bright beach wear",
+            g: "swimwear",
+            h: "vintage"
 
         },
         pairs: {
@@ -299,7 +299,7 @@ function buildquiz() {
                 `
             <div class="wrapper wrapper-${currentquestion.id} wrapper-output">
                 <div class="question" id="question${currentquestion.id}">
-                    <h3>${currentquestion.question} <span>${currentquestion.id} / ${myQuestions.length}</span></h3> 
+                    <h3>${currentquestion.question} <span>question ${currentquestion.id} of ${myQuestions.length}</span></h3> 
                 </div>
                 
                 <div class="wrapper question-wrapper" id="wrapper-${currentquestion.id}">
