@@ -10,7 +10,7 @@ const myQuestions = [{
         },
         pairs: {
             a: "France",
-            b: "Panama",
+            b: "Thailand",
             c: "Canada",
             d: "Norway"
         }
@@ -22,7 +22,7 @@ const myQuestions = [{
         answers: {
             a: "sunny",
             b: "mild",
-            c: "hot",
+            c: "cloudy",
             d: "snowy",
             e: "rainy",
             f: "hot"
@@ -30,7 +30,7 @@ const myQuestions = [{
         pairs: {
             a: "Panama",
             b: "France",
-            c: "Thailand",
+            c: "England",
             d: "Canada",
             e: "Thailand",
             f: "Thailand"
@@ -42,25 +42,21 @@ const myQuestions = [{
         question: "Please chose one of these cuisines",
         category: "cuisine",
         answers: {
-            a: "Thai",
-            b: "Spanish",
-            c: "Moroccan",
-            d: "Japanese",
-            e: "Indian",
-            f: "Italian",
-            g: "French",
-            h: "Chinese"
+            a: "Seafood",
+            b: "Asian",
+            c: "Sausages",
+            d: "Meats",
+            e: "Oatmeal",
+            g: "French"
 
         },
         pairs: {
             a: "Thailand",
-            b: "Spain",
-            c: "Morocco",
-            d: "Japan",
-            e: "India",
-            f: "Italy",
-            g: "France",
-            h: "China"
+            b: "Thailand",
+            c: "Germany",
+            d: "Canada",
+            e: "England",
+            f: "France"
         }
 
     },
@@ -69,7 +65,7 @@ const myQuestions = [{
         question: "How spicy do you like?",
         category: "spices",
         answers: {
-            a: "I don't eat spicy",
+            a: "none",
             b: "little",
             c: "mild",
             d: "spicy hot",
@@ -77,11 +73,11 @@ const myQuestions = [{
 
         },
         pairs: {
-            a: "Canada",
+            a: "Englang",
             b: "France",
-            c: "Italy",
+            c: "Germany",
             d: "Thailand",
-            e: "India"
+            e: "Thailand"
         }
     },
     {
@@ -105,9 +101,137 @@ const myQuestions = [{
             c: "France",
             d: "Canada",
             e: "Thailand",
-            f: "Canada",
+            f: "Norway",
             g: "Canada",
-            h: "Japan"
+            h: "England"
+        }
+    },
+    {
+        id: 6,
+        question: "What are the most enjoyable ways of life?",
+        category: "lifestyle",
+        answers: {
+            a: 'Secluded',
+            b: 'Vibrant city life',
+            c: 'Adventurous',
+            d: 'Rural',
+            e: 'Journeys and outdoors',
+            f: 'Island style',
+            g: 'Hardworking'
+
+        },
+        pairs: {
+            a: 'Canada',
+            b: 'England',
+            c: 'Morocco',
+            d: 'Canada',
+            e: 'France',
+            f: 'Thailand',
+            g: 'Germany'
+        }
+    },
+    {
+        id: 7,
+        question: "What type of house makes you comfortable?",
+        category: "house",
+        answers: {
+            a: "Condominium",
+            b: "Ocean Villa",
+            c: "Town House",
+            d: "Jungle Hut",
+            e: "City Appartment",
+            f: "Spacious estate with garden",
+            g: "Farm House",
+            h: "Wood Log House"
+
+        },
+        pairs: {
+            a: 'Panama',
+            b: 'Thailand',
+            c: 'Canada',
+            d: 'Thailand',
+            e: 'Germany',
+            f: 'Canada',
+            g: 'Canada',
+            h: 'Norway'
+        }
+    },
+    {
+        id: 8,
+        question: "Where is most likely you’ll find yourself on a Sunday morning after the wild party?",
+        category: "party",
+        answers: {
+            a: "Place of worship",
+            b: "Home, sweet home",
+            c: "Parent's house",
+            d: "Police station",
+            e: "Hospital",
+            f: "Airport",
+            g: "Beach",
+            h: "In the woods"
+
+        },
+        pairs: {
+            a: 'Germany',
+            b: 'Canada',
+            c: 'England',
+            d: 'France',
+            e: 'Morocco',
+            f: 'Panama',
+            g: 'Thailand',
+            h: 'Norway'
+        }
+    },
+    {
+        id: 9,
+        question: "What type of people annyos you?",
+        category: "people",
+        answers: {
+            a: "Lazy",
+            b: "Talkative",
+            c: "Uncultured",
+            d: "Rude",
+            e: "Fancy",
+            f: "Silent",
+            g: "Overly polite",
+            h: "Slow"
+
+        },
+        pairs: {
+            a: 'Germany',
+            b: 'Norway',
+            c: 'England',
+            d: 'Canada',
+            e: 'Morocco',
+            f: 'Panama',
+            g: 'Thailand',
+            h: 'Germany'
+        }
+    },
+    {
+        id: 10,
+        question: "What would you wear to a holiday party?",
+        category: "fashion",
+        answers: {
+            a: "Arty fashion",
+            b: "Casual",
+            c: "Chic fashion",
+            d: "Sporty",
+            e: "Loose long dress/robe",
+            f: "Bright beach wear",
+            g: "Swimweear",
+            h: "Vintage"
+
+        },
+        pairs: {
+            a: 'Germany',
+            b: 'Norway',
+            c: 'England',
+            d: 'Canada',
+            e: 'Morocco',
+            f: 'Panama',
+            g: 'Thailand',
+            h: 'France'
         }
     },
 ];
@@ -196,7 +320,6 @@ function buildquiz() {
                         </div>
                 </div>
 
-               
             </div>
             `
             )
@@ -207,8 +330,8 @@ function buildquiz() {
     quizContainer.innerHTML = output.join('')
 
     // not showing very last next button on  last quiz question
-    let lastButton = document.getElementById("button-next-5")
-    if (lastButton.id === "button-next-5") {
+    let lastButton = document.getElementById(`button-next-${myQuestions.length}`)
+    if (lastButton.id === `button-next-${myQuestions.length}`) {
         lastButton.style.display = "none"
     }
 }
@@ -218,8 +341,6 @@ function showResults() {
 
     // very last error handler to verify last question iput
     window.onerror = function() {
-        // alert('Please check you inputs')
-        // return true;
         modal.style.display = 'block'
     }
 
@@ -254,7 +375,7 @@ function showResults() {
     return document.body.innerHTML = `
    
         <div class="wrapper answer-wrapper">
-            <h3>You Got: ${winningCountry[0]}</h3>
+            <h3>Most Likely You Got: ${winningCountry[0]}</h3>
             <div class="answer-img-container wrapper">
                 <img class="country-img" src="https://source.unsplash.com/450x751/?${winningCountry[0]},landmark" alt="Random placeholder image of landmark in ${winningCountry[0]}">
                 <img class="country-img" src="https://source.unsplash.com/450x752/?${winningCountry[0]},people" alt="Random placeholder image of landmark in ${winningCountry[0]}">
@@ -270,5 +391,5 @@ function showResults() {
 buildquiz();
 
 // adding submit button dynamically on the last question
-document.getElementById('5').insertAdjacentElement('beforeend', submitBtn)
+document.getElementById(`${myQuestions.length}`).insertAdjacentElement('beforeend', submitBtn)
 submitBtn.addEventListener('click', showResults)
