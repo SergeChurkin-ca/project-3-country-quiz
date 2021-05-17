@@ -1,6 +1,6 @@
 # Project 3 (solo interactive jQuery site)
 
-### https://sergechurkin-ca.github.io/sergeChurkinProjectThree/index.html
+### https://sergechurkin-ca.github.io/project-3-country-quiz/index.html
 
 Project due dates can be found [here](https://github.com/HackerYou/bootcamp-notes/blob/master/stuff-you-need-to-know/important-dates.md).
 
