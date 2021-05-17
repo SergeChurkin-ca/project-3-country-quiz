@@ -1,7 +1,7 @@
 const myQuestions = [{
         id: 1,
         question: "What is your favourite season?",
-        category: "season",
+        category: "seasons",
         answers: {
             a: "spring",
             b: "summer",
