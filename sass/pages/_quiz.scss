@@ -184,7 +184,9 @@ button {
     margin: 1%;
     min-width: 200px;
 }
-
+.modal {
+    display: none;
+}
 .modal {
     position: fixed;
     top: 0;
